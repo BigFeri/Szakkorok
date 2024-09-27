@@ -1,5 +1,5 @@
 <template>
-  
+  <h4>Szakkörök</h4>
 </template>
 
 <script>
