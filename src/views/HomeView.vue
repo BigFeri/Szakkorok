@@ -1,48 +1,79 @@
 <template>
-  <div class="container">
-    <h2>Tanulók és szakkörök</h2>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Név</th>
-          <th>Osztály</th>
-          <th>Szakkör</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(student, index) in students" :key="index">
-          <td>{{ student.name }}</td>
-          <td>{{ student.class }}</td>
-          <td>
-            <select v-model="student.selectedActivity" class="form-select">
-              <option v-for="activity in activities" :key="activity" :value="activity">
-                {{ activity }}
-              </option>
-            </select>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <pre>{{ students }}</pre>
-</div>
+  <div class="my-container">
+    <h1 class="sticky-top">Szakkörök</h1>
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Tanuló</th>
+            <th scope="col">Osztály</th>
+            <th scope="col">Szakkör</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="diak in diakok" :key="diak.id">
+            <td>{{ diak.nev }}</td>
+            <td>{{ diak.osztaly }}</td>
+            <td>
+              <select class="form-select" v-model="diak.szakkorId" @change="TanuloSzakkor(diak)">
+                
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      students: [
-        { nev: "Oláh Péter", osztaly: "13D", selectedActivity: null },
-        { nev: "Nagy Ferenc", osztaly: "14K", selectedActivity: null },
-        { nev: "Juhász Kristóf", osztaly: "2C", selectedActivity: null },
+      diakok: [
+        { id: 1, nev: "Németh László", osztaly: "9.B", szakkorId: 4 },
+        { id: 2, nev: "Kovács Zita", osztaly: "10.A", szakkorId: 4 },
+        { id: 3, nev: "Farkas Péter", osztaly: "11.B", szakkorId: 4 },
+        { id: 4, nev: "Varga Eszter", osztaly: "9.B", szakkorId: 4 },
+        { id: 5, nev: "Hegedűs Dávid", osztaly: "10.A", szakkorId: 4 },
+        { id: 6, nev: "Szőke Katalin", osztaly: "11.B", szakkorId: 4 },
+        { id: 7, nev: "Molnár Gábor", osztaly: "10.A", szakkorId: 4 },
+        { id: 8, nev: "Kiss Anikó", osztaly: "9.B", szakkorId: 4 },
+        { id: 9, nev: "Barna Tamás", osztaly: "10.A", szakkorId: 4 },
+        { id: 10, nev: "Tóth Júlia", osztaly: "11.B", szakkorId: 4 },
+        { id: 11, nev: "Fekete Anna", osztaly: "10.A", szakkorId: 4 },
+        { id: 12, nev: "Nagy Balázs", osztaly: "11.B", szakkorId: 4 },
+        { id: 13, nev: "Sipos Mária", osztaly: "9.B", szakkorId: 4 },
+        { id: 14, nev: "Kerekes János", osztaly: "11.B", szakkorId: 4 },
+        { id: 15, nev: "Varga Csilla", osztaly: "10.A", szakkorId: 4 },
       ],
-      activities: ["Foci", "Röpi", "Színjátszás", "Nincs szakkör"],
+      activities: [
+        {
+          id: 1,
+          nev: "Football",
+        },
+        {
+          id: 2,
+          nev: "Röplabda",
+        },
+        {
+          id: 3,
+          nev: "Dráma",
+        },
+        {
+          id: 4,
+          nev: "Nem jár szakkörre",
+        },
+      ],
+      szakkorTanulo:{
+        Football:[],
+        Röplabda:[],
+        Dráma:[]
+      }
     };
   },
 };
 </script>
 
-<style scoped>
-
+<style>
 </style>

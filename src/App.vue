@@ -9,7 +9,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <HelloWorld msg="You did it!" />
 
       <nav>
-        <RouterLink to="/szakkorok">Szakkörök</RouterLink>
+        <RouterLink to="/">Szakkörök</RouterLink>
       </nav>
     </div>
   </header>
