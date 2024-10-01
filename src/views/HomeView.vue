@@ -106,6 +106,7 @@ export default {
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: pulse 3s infinite;
 }
 
 .title {
@@ -113,6 +114,7 @@ export default {
   margin-bottom: 20px;
   text-align: center;
   color: #333;
+  animation: colorChange 5s infinite;
 }
 
 .subtitle {
@@ -128,8 +130,9 @@ export default {
 }
 
 .table th, .table td {
-  padding: 10px;
+  padding: 8px; /* Csökkentett padding */
   text-align: center;
+  font-size: 0.9rem; /* Csökkentett betűméret */
 }
 
 .table th {
@@ -144,11 +147,28 @@ export default {
 .form-select {
   border-radius: 5px;
   border: 1px solid #ccc;
-  padding: 5px;
+  padding: 4px; /* Csökkentett padding */
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .form-select:focus {
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
+/* Animations */
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px rgba(0, 123, 255, 0.7); }
+  50% { box-shadow: 0 0 20px rgba(0, 123, 255, 0.4); }
+  100% { box-shadow: 0 0 10px rgba(0, 123, 255, 0.7); }
+}
+
+@keyframes colorChange {
+  0% { color: #ff4d4d; }
+  25% { color: #ffcc00; }
+  50% { color: #33cc33; }
+  75% { color: #00ccff; }
+  100% { color: #ff4d4d; }
+}
 </style>
+
