@@ -13,7 +13,11 @@
           </thead>
           <tbody>
             <tr v-for="diak in diakok" :key="diak.id">
-              <td class="my-td">{{ diak.nev }}</td>
+              <td class="my-td">
+                <img src="../../public/g59.jpg" class="icon" />
+                <!-- Itt van a PNG -->
+                {{ diak.nev }}
+              </td>
               <td class="my-td">{{ diak.osztaly }}</td>
               <td>
                 <select
@@ -40,7 +44,7 @@
           <h2 class="subtitle">Szakkörök</h2>
           <div class="row">
             <Szakkorok
-              v-for="(szakkor) in szakkorok"
+              v-for="szakkor in szakkorok"
               :key="szakkor.id"
               :szakkor="szakkor"
               :diakok="diakok"
@@ -129,7 +133,8 @@ export default {
   overflow: hidden;
 }
 
-.table th, .table td {
+.table th,
+.table td {
   padding: 8px; /* Csökkentett padding */
   text-align: center;
   font-size: 0.9rem; /* Csökkentett betűméret */
@@ -158,17 +163,39 @@ export default {
 
 /* Animations */
 @keyframes pulse {
-  0% { box-shadow: 0 0 10px rgba(0, 123, 255, 0.7); }
-  50% { box-shadow: 0 0 20px rgba(0, 123, 255, 0.4); }
-  100% { box-shadow: 0 0 10px rgba(0, 123, 255, 0.7); }
+  0% {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+  }
 }
 
 @keyframes colorChange {
-  0% { color: #ff4d4d; }
-  25% { color: #ffcc00; }
-  50% { color: #33cc33; }
-  75% { color: #00ccff; }
-  100% { color: #ff4d4d; }
+  0% {
+    color: #ff4d4d;
+  }
+  25% {
+    color: #ffcc00;
+  }
+  50% {
+    color: #33cc33;
+  }
+  75% {
+    color: #00ccff;
+  }
+  100% {
+    color: #ff4d4d;
+  }
+}
+
+.icon {
+  width: 20px; /* Állítsd be az ikon szélességét */
+  height: 20px; /* Állítsd be az ikon magasságát */
+  margin-right: 8px; /* Kisebb távolság az ikon és a név között */
+  vertical-align: middle; /* Igazítás a szöveggel */
 }
 </style>
-
